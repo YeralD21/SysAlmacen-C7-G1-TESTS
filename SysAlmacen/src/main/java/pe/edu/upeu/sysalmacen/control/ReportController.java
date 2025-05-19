@@ -62,7 +62,7 @@ public class ReportController {
 
     @PostMapping(value = "/saveFileCloud", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> saveFileCloud(@RequestParam("file") MultipartFile multipartFile) throws Exception {
-    //Repo Externo / Cloudinary
+        //Repo Externo / Cloudinary
         File f = this.convertToFile(multipartFile);
         Map<String, Object> response = cloudinary.uploader().upload(f, ObjectUtils.asMap("resource_type", "auto"));
         JSONObject json = new JSONObject(response);
